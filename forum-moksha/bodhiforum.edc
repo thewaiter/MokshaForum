@@ -74,6 +74,7 @@ collections {
 #include "edcs/notification.edc"
 #include "edcs/tclock.edc"
 #include "edcs/mokshapreview.edc"
+#include "edcs/xkbswitch.edc"
 
 
 
