@@ -124,7 +124,7 @@ styles {
          part {
             name: "base";
             clip_to: "clip";
-            mouse_events: 0;
+            mouse_events: 1;
             description {
                state: "default" 0.0;
              color: 255 255 255 255;
@@ -144,10 +144,12 @@ styles {
          }
       }
       part { name: "bodyclip"; type: RECT;
-        clip_to: "clip";
+         clip_to: "clip";
+         scale: 1;
          description { state: "default" 0.0;
             rel2.offset: -13 -13;
-            min: 300 140;
+            rel.to: "base";
+            min: 220 115;
          }
       }
       part { name: "notification.swallow.app_icon"; type: SWALLOW; mouse_events: 0;
@@ -161,23 +163,27 @@ styles {
             min: 24 24;
          }
       }
-      part { name: "notification.textblock.message"; type: TEXTBLOCK; mouse_events: 0;
-         clip_to: "bodyclip";
+       part {
+         name: "notification.textblock.message";
+         type: TEXTBLOCK;
+         mouse_events: 0;
          scale: 1;
+         clip_to: "bodyclip";
          description { state: "default" 0.0;
             align: 0.0 0.0;
             rel1.to_x: "notification.swallow.app_icon";
             rel1.to_y: "notification.text.title";
             rel1.relative: 1.0 1.0;
             rel1.offset: 4 4;
-            rel2.offset: -27 -13;
+            //~ rel2.offset: -27 -13;
+            rel2.relative: 0.95 0.7;
             text { style: "notification_style";
-               min: 0 1;
+               min: 0 0;
             }
             fixed: 1 1;
          }
       }
-      part { name: "message"; type: TEXTBLOCK; mouse_events: 0;
+      part { name: "message"; type: TEXTBLOCK; mouse_events: 0; scale: 1;
          description { state: "default" 0.0;
             align: 0.0 0.0;
             max: 500 99999;
@@ -185,8 +191,7 @@ styles {
             rel1.to_y: "notification.text.title";
             rel1.relative: 1.0 1.0;
             rel1.offset: 4 4;
-            rel2.relative: 0.95 0.7;
-            //~ rel2.offset: -27 -13;
+            rel2.offset: -27 -13;
             text { style: "notification_style_nowrap";
                text_source: "notification.textblock.message";
                min: 0 1;
