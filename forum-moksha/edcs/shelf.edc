@@ -233,14 +233,12 @@ description {	state: POS 0.0;							\
 				rel2.offset: REL2;		 				\
             }
 
-#define ORIENT(POS, OFF1, OFF2)							\
-description {	state: POS 0.0; 						\
-				inherit: "default" 0.0; 				\
-				rel1.relative: 0.0 0.0;				\
-				rel2.relative: 1.0 1.0;				\
-				rel1.offset: OFF1; 						\
-				rel2.offset: OFF2;						\
-            }
+#define ORIENT(POS, OFF1, OFF2) \
+description {   POS 0.0; inherit;						\
+                rel.to: "spacer";						\
+                rel1.offset: OFF1;						\
+                rel2.offset: OFF2;						\
+}
 
 #define ORIENT_PROGRAM(POS)								\
 program { name: POS; 									\
@@ -260,12 +258,12 @@ program { name: POS; 									\
 		public message(Msg_Type:type, id, ...) { \
 			new val = getarg(2); \
 			if ((type == MSG_INT_SET) && (id == 0)) \
-				custom_state(PART:"e.swallow.content", "default", 0.0); \
+				custom_state(PART:"spacer", "default", 0.0); \
 			if ((type == MSG_INT_SET) && (id == 1)) \
-				custom_state(PART:"e.swallow.content", "vert", 0.0); \
-			set_state_val(PART:"e.swallow.content", STATE_REL1_OFFSET, val, val); \
-			set_state_val(PART:"e.swallow.content", STATE_REL2_OFFSET, 0 - val, 0 - val); \
-			set_state(PART:"e.swallow.content", "custom", 0.0); \
+				custom_state(PART:"spacer", "vert", 0.0); \
+			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val); \
+			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
+			set_state(PART:"spacer", "custom", 0.0); \
 		} \
 	} \
       parts { 													\
@@ -292,6 +290,18 @@ program { name: POS; 									\
 			BASE_ORIENT("bottom_left", -10 0, -1 10)			\
 			BASE_ORIENT("bottom_right", 0 0, 10 10)				\
          } 														\
+         part {   												\
+            name: "spacer"; nomouse;							\
+	        type: SPACER; 										\
+            desc { 									            \
+               state: "default" 0.0; 							\
+	           rel1.offset: 12 12; 								\
+	           rel2.offset: -12 -12; 							\
+            } 													\
+            desc { 										        \
+               state: "vert" 0.0; inherit; 						\
+            }     								                \
+         } 		                                                \
          part {													\
             name: "e.swallow.content"; 							\
             type: SWALLOW; 										\
@@ -304,9 +314,6 @@ program { name: POS; 									\
 		   ORIENT("bottom", 5 3, -2 1)							\
 		   ORIENT("bottom_left", 1 4, -1 -1)					\
 		   ORIENT("bottom_right", 1 4, -1 -1)					\
-            description { 										\
-               state: "vert" 0.0; 								\
-		   }													\
 		   ORIENT("left", 1 4, -4 -4)							\
 		   ORIENT("left_top", 1 0, -4 0)						\
 		   ORIENT("left_bottom", 1 0, -4 0)						\
