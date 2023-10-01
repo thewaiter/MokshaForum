@@ -20,15 +20,14 @@ group { name: "e/modules/notification/logo";
           mouse_events: 0;
           type: TEXT;
           scale: 1;
-          effect: OUTLINE_SOFT_SHADOW;
+          effect: NONE;
           description 
           {
             rel1.to: "base";
             rel2.to: "base";
-            rel2.offset: 0 1;
+            rel2.offset: -2 1;
             state: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 0 0 0 32;
+            color: 0 0 0 192;
             color_class: "module_label";
             visible: 1;
             text 
