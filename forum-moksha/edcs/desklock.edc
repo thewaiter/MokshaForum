@@ -25,7 +25,7 @@
             name: "shadow";
             mouse_events: 0;
             description {
-				max: 350 250;
+               max: 350 250;
                state: "default" 0.0;
                align: 0.5 0.55;
                color_class: "menu_base";
@@ -41,13 +41,13 @@
             description {
                state: "default" 0.0;
                rel1 {
-					offset: 6 6;
-					to: "shadow";
-				}
-				rel2 {
-					offset: -8 -8;
-					to: "shadow";
-					}
+                    offset: 6 6;
+                    to: "shadow";
+               }
+               rel2 {
+                    offset: -8 -8;
+                    to: "shadow";
+               }
                image {
                   normal: "img/popup_base.png";
                   border: 6 6 6 6;
@@ -184,6 +184,7 @@
                   size: 16;
                   align: 0.0 0.5;
                   min: 1 1;
+                  ellipsis: -1;
                   text_class: "desklock_passwd";
                }
             }
