@@ -30,15 +30,28 @@
                image.normal: "img/check1.png";
             }
             description {
-				state: "selected" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/check2.png";
-			}
-			description {
-				state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/check0.png";
-			}
+                state: "selected" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/check2.png";
+            }
+            description {
+                state: "disabled" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/check0.png";
+            }
+         }
+         part { name: "focus";
+            description { state: "default" 0.0;
+               rel1.offset: -2  -1;
+               rel2.offset:  0   0;
+               image.normal: "img/frame.png";
+               image.border: 9 9 9 9;
+               visible: 0;
+            }
+            description { state: "focused" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
          }
          part {
             name: "e.text.label";
@@ -130,6 +143,18 @@
             target: "event";
             target: "e.text.label";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "focus";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "focus";
+         }
       }
    }
    group {
@@ -161,17 +186,16 @@
                image.normal: "img/check1.png";
             }
             description {
-				state: "selected" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/check2.png";
-			}
-			description {
-				state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/check0.png";
-			}
+                state: "selected" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/check2.png";
+            }
+            description {
+                state: "disabled" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/check0.png";
+            }
          }
- 
          part {
             name: "e.swallow.icon";
             type: SWALLOW;
@@ -354,15 +378,28 @@
                image.normal: "img/radio1.png";
             }
             description {
-				state: "selected" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/radio2.png";
-			}
-			description {
-				state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/radio0.png";
-			}
+                state: "selected" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/radio2.png";
+            }
+            description {
+                state: "disabled" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/radio0.png";
+            }
+         }
+         part { name: "focus";
+            description { state: "default" 0.0;
+               rel1.offset: -2  -1;
+               rel2.offset:  0   0;
+               image.normal: "img/frame.png";
+               image.border: 9 9 9 9;
+               visible: 0;
+            }
+            description { state: "focused" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
          }
          part {
             name: "e.text.label";
@@ -454,6 +491,18 @@
             target: "event";
             target: "e.text.label";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "focus";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "focus";
+         }
       }
    }
    group {
@@ -485,15 +534,28 @@
                image.normal: "img/radio1.png";
             }
             description {
-				state: "selected" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/radio2.png";
-			}
-			description {
-				state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				image.normal: "img/radio0.png";
-			}
+                state: "selected" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/radio2.png";
+            }
+            description {
+                state: "disabled" 0.0;
+                inherit: "default" 0.0;
+                image.normal: "img/radio0.png";
+            }
+         }
+         part { name: "focus";
+            description { state: "default" 0.0;
+               rel1.offset: -2  -1;
+               rel2.offset:  0   0;
+               image.normal: "img/frame.png";
+               image.border: 9 9 9 9;
+               visible: 0;
+            }
+            description { state: "focused" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
          }
          part {
             name: "e.swallow.icon";
@@ -644,6 +706,18 @@
             target: "event";
             target: "e.text.label";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "focus";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "focus";
+         }
       }
    }
    group {
@@ -673,6 +747,11 @@
             }
             description {
                state: "prelight" 0.0;
+               inherit: "default" 0.0;
+               image.normal: "img/button-prelight.png";
+            }
+            description {
+               state: "focused" 0.0;
                inherit: "default" 0.0;
                image.normal: "img/button-prelight.png";
             }
@@ -872,6 +951,18 @@
             target: "e.text.label";
             target: "disabler";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "button_image";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "button_image";
+         } 
       }
    }
 
@@ -900,13 +991,13 @@
                color: 234 234 234 255;
             }
          }
-               part { name: "clipper"; type: RECT;
-         description { state: "default" 0.0;
-            rel1.to: "base";
-            rel2.to: "base";
-            rel2.offset: -6 0;
+         part { name: "clipper"; type: RECT;
+            description { state: "default" 0.0;
+               rel1.to: "base";
+               rel2.to: "base";
+               rel2.offset: -6 0;
+            }
          }
-      }
          part {
             name: "e.swallow.content";
             type: SWALLOW;
@@ -965,14 +1056,14 @@
    group {
       name: "e/widgets/entry/text";
       styles {
-		style { name: "entry_textblock_style";
-			base: "font=Sans font_size=10 color=#000 text_class=entry color_classs=entry_text";
-			}
-		style { name: "entry_textblock_disabled_style";
-			base: "font=Sans font_size=10 color=#000 text_class=entry color_class=entry_text_disabled";
-			}
-		}
-	parts {
+        style { name: "entry_textblock_style";
+            base: "font=Sans font_size=10 color=#000 text_class=entry color_classs=entry_text";
+            }
+        style { name: "entry_textblock_disabled_style";
+            base: "font=Sans font_size=10 color=#000 text_class=entry color_class=entry_text_disabled";
+            }
+        }
+    parts {
        part { name: "e.text.text"; type: TEXTBLOCK;
        mouse_events: 1;
          scale: 1;
@@ -1551,6 +1642,19 @@
                }
             }
          }
+         part { name: "focus";
+            description { state: "default" 0.0;
+               rel1.offset: -2  -1;
+               rel2.offset:  0   0;
+               image.normal: "img/frame.png";
+               image.border: 9 9 9 9;
+               visible: 0;
+            }
+            description { state: "focused" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+            }
+         }
          part {
             name: "runner";
             mouse_events: 0;
@@ -1822,6 +1926,18 @@
             target: "clip";
             target: "event";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "focus";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "focus";
+         }
       }
    }
    group {
@@ -1852,6 +1968,19 @@
                   relative: 0.0  1.0;
                   offset: -1   -3;
                }
+            }
+         }
+         part { name: "focus";
+            description { state: "default" 0.0;
+               rel1.offset: -2  -1;
+               rel2.offset:  0   0;
+               image.normal: "img/frame.png";
+               image.border: 9 9 9 9;
+               visible: 0;
+            }
+            description { state: "focused" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
             }
          }
          part {
@@ -2125,6 +2254,18 @@
             target: "clip";
             target: "event";
          }
+         program {
+            name: "focus_in";
+            signal: "e,state,focused"; source: "e";
+            action: STATE_SET "focused" 0.0;
+            target: "focus";
+         }
+         program {
+            name: "focus_out";
+            signal: "e,state,unfocused"; source: "e";
+            action: STATE_SET "default" 0.0;
+            target: "focus";
+         }
       }
    }
 
@@ -2143,7 +2284,7 @@ group {
            to_x: "outline";
            to_y: "e.text.label";
            relative: 0.0  1.0;
-           offset:   8    2;
+           offset:   8    4;
         }
         rel2 {
            to: "outline";
