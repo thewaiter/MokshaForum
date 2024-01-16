@@ -114,7 +114,7 @@
 						to_y: "titlebar";						\
 					}						\
 					rel2	{						\
-						offset: -8 -5;						\
+						offset: -4 -5;						\
 						relative: 1.0 1.0;						\
 						to_x: "titlebar";						\
 						to_y: "titlebar";						\
@@ -145,7 +145,7 @@
 				description{						\
 					state: "default" 0.0;						\
 					rel1	{						\
-						offset: -16 4;						\
+						offset: -20 4;						\
 						relative: 0.0 0.0;						\
 						to_x: "btCls";						\
 						to_y: "titlebar";						\
@@ -182,7 +182,7 @@
 				description{						\
 					state: "default" 0.0;						\
 					rel1	{						\
-						offset: -16 4;						\
+						offset: -20 4;						\
 						relative: 0.0 0.0;						\
 						to_x: "btMax";						\
 						to_y: "titlebar";						\
