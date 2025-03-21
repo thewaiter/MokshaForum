@@ -55,12 +55,12 @@
                fixed: 1 1;
                align: 0.5 0.0;
                rel1 {
-				   to: "base";
+                  to: "base";
                   relative: 0.0 0.0;
                   offset: 0 0;
                }
                rel2 {
-				   to: "base";
+                  to: "base";
                   relative: 1.0 0.0;
                   offset: -1 0;
                }
@@ -100,11 +100,9 @@
          image: "img/pager/pager_shadow_drop.png" COMP;
          image: "img/pager/pager_shadow_in.png" COMP;
          image: "img/pager/pager_base2.png" COMP;
-         //
          image: "img/pager/minipager_border.png" COMP;
          image: "img/pager/minipager_shadow_in.png" COMP;
       }
-      
       script {
 		public disable_live_preview = 0;
 		public show_desk_names = 0;
@@ -131,8 +129,8 @@
                rel2.offset: -6 -6;
              }
              description {
-				 state: "mini" 0.0;
-				 inherit: "default" 0.0;
+               state: "mini" 0.0;
+               inherit: "default" 0.0;
                rel1.offset: 3 3;
                rel2.offset: -1 -1;
             }
@@ -140,20 +138,20 @@
          part {
 			 name: "drop_shadow";
 			 description {
-				 state: "default" 0.0;
-				 rel1.to: "base";
-				 rel1.offset: 2 2;
-				 rel2.to: "base";
-				 rel2.offset: 4 4;
-				 image.normal: "img/pager/pager_shadow_drop.png";
-				 image.border: 10 10 10 10;
+				state: "default" 0.0;
+				rel1.to: "base";
+				rel1.offset: 2 2;
+				rel2.to: "base";
+				rel2.offset: 4 4;
+				image.normal: "img/pager/pager_shadow_drop.png";
+				image.border: 10 10 10 10;
 			 }
 			 description {
-				 state: "mini"  0.0;
-				 inherit: "default" 0.0;
-				 visible: 1;
-				 rel1.offset: -1 -1;
-				 rel2.offset: 2 2;
+				state: "mini"  0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1.offset: -1 -1;
+				rel2.offset: 2 2;
 			 }
 		 }
          part {
@@ -442,7 +440,7 @@
                set_int(disable_live_preview, 0);
                set_state(PART:"bg_clip", "default", 0.0);
                set_state(PART:"e.background", "default", 0.0);
-               set_state(PART:"base", "hidden", 0.0);
+               set_state(PART:"base", "active", 0.0);
                //set_state(PART:"base2", "hidden", 0.0);
                //set_state(PART:"pattern", "default", 0.0);
             //   set_state(PART:"over", "active", 0.0);
