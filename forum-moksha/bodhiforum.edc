@@ -15,6 +15,7 @@
  *
  * FIXME: this is bad. namespacing! FIXME!
  */
+efl_version: 1 25;
 #if 0
 spectra {
    spectrum {
@@ -26,12 +27,12 @@ spectra {
 #endif
 
 data {
-	item: "theme/name"      "Bodhi Forum";
-	item: "theme/version"   "0.7.4";
-	item: "theme/author"    "Alberto 'Duma' Verdoja";
-	item: "gtk-theme"       "MokshaForum";
-    //~ item: "elm-theme"   "Forum-elm";
-    item: "icon-theme"      "MokshaForum";
+    item: "theme/name"    "Bodhi Forum";
+    item: "theme/version" "0.7.4";
+    item: "theme/author"  "Alberto 'Duma' Verdoja";
+    item: "gtk-theme"     "MokshaForum";
+    item: "icon-theme"    "MokshaForum";
+    item: "version"       "110";
 }
  
 #include "edcs/colors.edc"
