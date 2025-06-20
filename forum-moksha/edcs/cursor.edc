@@ -10,39 +10,20 @@
          image: "img/pointer_glow.png" COMP;
       }
       parts {
-         part {
-            name: "glow";
-            /* this overlay is used to put a white glow
-             * around the pointer, so when the pointer is
-             * idle every now and again it will pulsate
-             * with this glow to just remind you where the
-             * pointer is (if you lose a black-ish
-             * pointer on a black background) */
-            mouse_events: 0;
-            description {
-               state: "default" 0.0;
-               rel1.to: "base";
-               rel2.to: "base";
-               visible: 0;
-               color: 255 255 255 0;
-               image.normal: "img/pointer_glow.png";
-            }
-            description {
-               state: "visible" 0.0;
-               inherit: "default" 0.0;
-               visible: 1;
+         part { name: "parent"; type: RECT;
+            description { state: "default" 0.0;
                color: 255 255 255 255;
             }
-            description {
-				state: "glint" 0.0;
-				inherit: "default" 0.0;
-				color: 255 120 0 255;
-				visible: 1;
+            description { state: "suspend" 0.0;
+               inherit: "default" 0.0;
+               rel1.relative: 0.5 0.5;
+               rel2.relative: 0.5 0.5;
+               color: 255 255 255 0;
             }
          }
          part {
             name: "base";
-            mouse_events: 0;
+            clip_to: "parent";
             description {
                state: "default" 0.0;
                aspect: 0.71875 0.71875;
@@ -59,19 +40,48 @@
             }
           }
          part {
-			name: "fill";
-			mouse_events: 0;
-			description {
-				state: "default" 0.0;
-				rel1.to: "base";
-				rel2.to: "base";
-				color: 0 0 0 255;
-				image.normal: "img/pointer_fill.png";
-			}
+            name: "glow";
+            /* this overlay is used to put a white glow
+             * around the pointer, so when the pointer is
+             * idle every now and again it will pulsate
+             * with this glow to just remind you where the
+             * pointer is (if you lose a black-ish
+             * pointer on a black background) */
             description {
-				state: "glint" 0.0;
-				inherit: "default" 0.0;
-				color: 255 120 0 255;
+               state: "default" 0.0;
+               rel.to: "base";
+               visible: 0;
+               color: 255 255 255 0;
+               image.normal: "img/pointer_glow.png";
+            }
+            description {
+               state: "visible" 0.0;
+               inherit: "default" 0.0;
+               visible: 1;
+               color: 255 255 255 255;
+            }
+            description {
+               state: "glint" 0.0;
+               inherit: "default" 0.0;
+               color: 255 120 0 255;
+               visible: 1;
+            }
+         }
+         part {
+            name: "fill";
+            mouse_events: 0;
+            clip_to: "parent";
+            description {
+                state: "default" 0.0;
+                rel1.to: "base";
+                rel2.to: "base";
+                color: 0 0 0 255;
+                image.normal: "img/pointer_fill.png";
+            }
+            description {
+                state: "glint" 0.0;
+                inherit: "default" 0.0;
+                color: 255 120 0 255;
             }
          }
          part {
@@ -100,6 +110,18 @@
          }
       }
       programs {
+         program {
+            signal: "e,state,init"; source: "e";
+            action: STATE_SET "suspend" 0.0;
+            target: "parent";
+            after: "load2";
+         }
+         program { name: "load2";
+            action: STATE_SET "default" 0.0;
+            transition: SINUSOIDAL 1.0;
+            in: 1.0 0.0;
+            target: "parent";
+         }
          program {
             name: "mouse_down";
             /* called every time e detects a mouse
