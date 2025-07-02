@@ -6,7 +6,6 @@ images
   image:"e17_button_sm.png" COMP;
   image:"e17_button_sm2.png" COMP;
   image:"e17_button_sm_ins.png" COMP;
-  image:"e17_button_sm2_urgent.png" COMP;
 }
       parts {
          part {
