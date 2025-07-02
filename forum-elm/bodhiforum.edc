@@ -40,7 +40,6 @@ collections {
 #include "edcs/background.edc" 
 #include "edcs/borders.edc"
 #include "edcs/systray.edc"
-//#include "edcs/taskbar_old.edc"
 #include "edcs/dialog.edc"
 #include "edcs/cursor.edc"
 #include "edcs/comp.edc"
