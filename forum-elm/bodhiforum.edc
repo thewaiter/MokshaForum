@@ -15,6 +15,7 @@
  *
  * FIXME: this is bad. namespacing! FIXME!
  */
+efl_version: 1 27;
 #if 0
 spectra {
    spectrum {
