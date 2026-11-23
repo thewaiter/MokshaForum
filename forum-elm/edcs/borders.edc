@@ -910,7 +910,7 @@ group {
 group {
 	name: "e/widgets/border/noresize_notoolbar/border";
 		images {
-		image: "img/dialog_base.png" COMP;
+		//~ image: "img/dialog_base.png" COMP;
 	 	image: "img/btClsdialog.png" COMP;
 		image: "img/btIcndialog.png" COMP;
 	}
