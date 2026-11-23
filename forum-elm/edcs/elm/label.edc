@@ -21,7 +21,7 @@ group { name: "elm/label/base/default";
             color_class: "label_text";
             text {
                style: "label_style";
-               min: 0 1;
+               min: 1 1;
             }
          }
       }
